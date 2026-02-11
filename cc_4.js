@@ -38,4 +38,20 @@ for (let product of products) {
             break;
     }
     
+    product.discountedPrice = (product.price * (1-discount)).toFixed(2);
+}
+
+// Step 4: Create customerType Variable and Write if...else chain
+
+let customerType = "student"
+
+if (customerType = "student") {
+    extraDiscount = 0.05
+    console.log("You get an extra 5% off for being a student!")
+} else if (customerType = "senior") {
+    extraDiscount = 0.07
+    console.log("You get an extra 7% off for being a senior!")
+} else {
+    extraDiscount = 0
+    
 }
