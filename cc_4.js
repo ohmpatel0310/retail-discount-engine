@@ -76,12 +76,12 @@ for (let customer = 1; customer <= 3; customer++) {
             
             --product.Inventory
 
-            // console.log(`${product.Name}: $${itemFinalPrice.toFixed(2)}`)
+            //console.log(`${product.Name}: $${itemFinalPrice.toFixed(2)} (Inventory left: ${product.Inventory})`)
        
     }
 }
 
-// console.log(`Final Total for Customer ${customer}: $${total.toFixed(2)}`);
+console.log(`Final Total for Customer ${customer}: $${total.toFixed(2)}`);
 
 }
 
