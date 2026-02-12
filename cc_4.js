@@ -48,13 +48,13 @@ let extraDiscount = 0
 let customerType = "student"
 
 if (customerType === "student") {
-    let extraDiscount = 0.05
+    extraDiscount = 0.05
     console.log("You get an extra 5% off for being a student!")
 } else if (customerType === "senior") {
-    let extraDiscount = 0.07
+    extraDiscount = 0.07
     console.log("You get an extra 7% off for being a senior!")
 } else {
-    let extraDiscount = 0
+    extraDiscount = 0
     
 }
 
@@ -97,3 +97,27 @@ for (let key in sampleProduct) {
     console.log(`${key}: ${sampleProduct[key]}`)
 }
 
+let finalPrice = sampleProduct.Price * (1-sampleProduct.categoryDiscountRate) * (1-extraDiscount)
+console.log(`Customer Discount: ${(extraDiscount.toFixed(0))}%`)
+console.log(`Final Price after all Discounts: $${finalPrice.toFixed(2)}`)
+
+// Step 7: Use Object.entries to Log All Product Info
+
+console.log("")
+console.log("All Products after Checkout")
+
+for (const product of products) {
+
+    console.log("")
+    console.log("Product:")
+
+    for (const [key, value] of Object.entries(product)) {
+        console.log(`${key}: ${value}`)
+        
+    }
+
+    let finalPrice = product.Price * (1-product.categoryDiscountRate) * (1-extraDiscount)
+    console.log(`Customer Discount: ${(extraDiscount*100).toFixed(0)}%`)
+    console.log(`Final Price after All Discounts: $${finalPrice.toFixed(2)}`)
+
+}
