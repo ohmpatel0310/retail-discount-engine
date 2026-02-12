@@ -4,7 +4,7 @@ let products = [
     {Name: "Brownie Computer", Category: "electronics", Price: 299.99, Inventory: 50},
     {Name: "Water", Category: "groceries", Price: 1.99, Inventory: 150},
     {Name: "Double Chocolate Chunk Brownie", Category: "groceries", Price: 3.99, Inventory: 80},
-    {Name: "I Love Brownies Shirt", Category: "Apparel", Price: 15.99, Inventory: 100},
+    {Name: "I Love Brownies Shirt", Category: "apparel", Price: 15.99, Inventory: 100},
     {Name: "Parchment Paper", Category: "household", Price: 10.99, Inventory: 200},
 ]
 
@@ -13,45 +13,74 @@ let products = [
 
 for (let product of products) {
 
-    let discount = 0;
+    let categoryDiscount = 0;
 
 // Creating switch statements for category discounts
 
-    switch (products.Category) {
+    switch (product.Category) {
         case "electronics":
-            discount = 0.20;
+            categoryDiscount = 0.20;
             break;
 
         case "apparel":
-            discount = 0.15;
+            categoryDiscount = 0.15;
             break;
 
         case "groceries":
-            discount = 0.10;
+            categoryDiscount = 0.10;
             break;
 
         case "household":
-            discount = 0.10;
+            categoryDiscount = 0.10;
             break;
     
         default:
             break;
     }
     
-    product.discountedPrice = (product.price * (1-discount)).toFixed(2);
+    product.categoryDiscountRate = categoryDiscount
+    product.categoryDiscountedPrice = (product.Price * (1-categoryDiscount)).toFixed(2);
 }
 
 // Step 4: Create customerType Variable and Write if...else chain
 
+let extraDiscount = 0
 let customerType = "student"
 
-if (customerType = "student") {
-    extraDiscount = 0.05
+if (customerType === "student") {
+    let extraDiscount = 0.05
     console.log("You get an extra 5% off for being a student!")
-} else if (customerType = "senior") {
-    extraDiscount = 0.07
+} else if (customerType === "senior") {
+    let extraDiscount = 0.07
     console.log("You get an extra 7% off for being a senior!")
 } else {
-    extraDiscount = 0
+    let extraDiscount = 0
     
+}
+
+// Step 5: Using for or while Loops to Simulate Checkout
+
+for (let customer = 1; customer <= 3; customer++) {
+
+    let total = 0;
+    console.log(`${customer}`);
+
+
+    for (const product of products) {
+
+        if (product.Inventory > 0) {
+            let priceAfterCategory = product.Price * (1-(product.categoryDiscountRate))
+
+            let itemFinalPrice = priceAfterCategory *(1-(extraDiscount))
+            total += itemFinalPrice
+            
+            --product.Inventory
+
+            console.log(`${product.Name}: $${itemFinalPrice.toFixed(2)}`)
+       
+    }
+}
+
+console.log(`Final Total for Customer ${customer}: $${total.toFixed(2)}`);
+
 }
