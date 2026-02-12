@@ -63,7 +63,7 @@ if (customerType === "student") {
 for (let customer = 1; customer <= 3; customer++) {
 
     let total = 0;
-    console.log(`${customer}`);
+    // console.log(`${customer}`);
 
 
     for (const product of products) {
@@ -76,11 +76,24 @@ for (let customer = 1; customer <= 3; customer++) {
             
             --product.Inventory
 
-            console.log(`${product.Name}: $${itemFinalPrice.toFixed(2)}`)
+            // console.log(`${product.Name}: $${itemFinalPrice.toFixed(2)}`)
        
     }
 }
 
-console.log(`Final Total for Customer ${customer}: $${total.toFixed(2)}`);
+// console.log(`Final Total for Customer ${customer}: $${total.toFixed(2)}`);
 
 }
+
+// Step 6: Using for...in loops to Log Single Products
+
+console.log("")
+console.log("Product Details")
+console.log("")
+
+let sampleProduct = products[2]
+
+for (let key in sampleProduct) {
+    console.log(`${key}: ${sampleProduct[key]}`)
+}
+
